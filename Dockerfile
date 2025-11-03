@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER	simon
 
-RUN apk add --update python python-dev py-pip build-base 
+RUN apk add --update python3 python-dev py-pip build-base 
 RUN pip install virtualenv 
 RUN rm -rf /var/cache/apk/*
 
