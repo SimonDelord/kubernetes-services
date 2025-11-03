@@ -5,7 +5,7 @@ import os
 UDP_IP = "0.0.0.0"
 UDP_PORT = int(os.environ['UDPPORT'])
 
-print "Listening on UDP port",UDP_PORT
+print ("Listening on UDP port",UDP_PORT)
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
