@@ -1,0 +1,21 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: udp-pod
+  namespace: simon-trialing
+  labels:
+    app.kubernetes.io/name: kubernetes-services-git
+    openshift.io/scc: anyuid
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  containers:
+    - resources: {}
+      terminationMessagePath: /dev/termination-log
+      name: udp-container-simon
+      ports:
+        - name: udp-port
+          containerPort: 5005
+          protocol: UDP
+      image: 'image-registry.openshift-image-registry.svc:5000/simon-trialing/kubernetes-services-git@sha256:519ca4d213c6fb58156f1b86d0dfb478a31bc6db768a069a71a10256dd5fd080'
+  serviceAccount: default
