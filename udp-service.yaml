@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-service
+  namespace: simon-trialing
+spec:
+  ports:
+    - name: simple-udp
+      protocol: UDP
+      port: 5005
+      targetPort: 5005
+    - name: complex-udp
+      protocol: UDP
+      port: 443
+      targetPort: 9377
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: kubernetes-services-git
