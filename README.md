@@ -17,3 +17,10 @@ To test this, I run the following
 ``` echo "Hello UDP" | nc -u <target_ip> <target_port> ``` 
 
 where target_ip is the service IP@ and target_port is 5005.
+
+
+### exposing it using MetalLB
+
+
+
+### exposing it using a cloud LB (AWS in that case)
