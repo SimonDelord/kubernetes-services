@@ -21,6 +21,9 @@ where target_ip is the service IP@ and target_port is 5005.
 
 ### exposing it using MetalLB
 
+#### MetalLB configuration
+
+For this setup I simply use an SNO (Single Node OpenShift) using Assisted Installer located at https://console.redhat.com/openshift/assisted-installer/clusters
 
 
 ### exposing it using a cloud LB (AWS in that case)
