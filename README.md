@@ -35,4 +35,22 @@ For Metal LB these are the steps to follow:
 
 All the configuration files are available under the MetalLB folder.
 
+#### Creating services for this PoD
+
+In this demo I create 2 services (one internal and one external). You don't need to have both, but I just want to show that it's possible to have multiple services pointing to the same PoD.
+For the internal service you simply use a selector on one of the pod labels 
+
+```
+  selector:
+    app.kubernetes.io/name: kubernetes-services-git
+```
+
+For the external service you then need to reference the MetalLB IPPoolAddress CR created in the previous step.
+
+```
+  annotations:
+    MetalLB.universe.tf/address-pool: ip-addresspool-beehive
+    metallb.io/ip-allocated-from-pool: ip-addresspool-beehive
+```
+
 ### exposing it using a cloud LB (AWS in that case)
