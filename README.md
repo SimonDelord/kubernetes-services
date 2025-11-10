@@ -23,7 +23,16 @@ where target_ip is the service IP@ and target_port is 5005.
 
 #### MetalLB configuration
 
-For this setup I simply use an SNO (Single Node OpenShift) using Assisted Installer located at https://console.redhat.com/openshift/assisted-installer/clusters
+For this setup I simply use an SNO (Single Node OpenShift) using Assisted Installer located at https://console.redhat.com/openshift/assisted-installer/clusters.
 
+If you need a bit of help doing the assisted install you can have a look under https://github.com/SimonDelord/OCP-Assisted-Installer
+
+For Metal LB these are the steps to follow:
+ - install the Metal LB Operator
+ - configure a MetalLB instance CR
+ - create an IPAddressPool CR
+ - create a L2Advertisment CR
+
+All the configuration files are available under the MetalLB folder.
 
 ### exposing it using a cloud LB (AWS in that case)
