@@ -52,5 +52,12 @@ For the external service you then need to reference the MetalLB IPPoolAddress CR
     MetalLB.universe.tf/address-pool: ip-addresspool-beehive
     metallb.io/ip-allocated-from-pool: ip-addresspool-beehive
 ```
+as well as the selector.
+
+```
+  selector:
+    app.kubernetes.io/name: kubernetes-services-git
+```
+
 
 ### exposing it using a cloud LB (AWS in that case)
