@@ -59,7 +59,16 @@ as well as the selector.
     app.kubernetes.io/name: kubernetes-services-git
 ```
 
-#### Using Metal LB in front of an ingress
+### exposing it using a cloud LB (AWS in that case)
+
+
+## TCP Services
+
+### Custom TCP Service
+
+Custom TCP services can also be created (for example specific TCP ports for Databases, VMs, etc...).
+
+### Using Metal LB in front of an ingress for standard ports (e.g 80/443)
 
 MetalLB can also be used to provide a load-balancing function in front of an ingress/routes (e.g for ports HTTP / HTTPS - typically TCP:80 and TCP:443).
 
@@ -85,6 +94,3 @@ spec:
       scope: External
     type: LoadBalancerService
 ```
-
-
-### exposing it using a cloud LB (AWS in that case)
