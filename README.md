@@ -59,5 +59,32 @@ as well as the selector.
     app.kubernetes.io/name: kubernetes-services-git
 ```
 
+#### Using Metal LB in front of an ingress
+
+MetalLB can also be used to provide a load-balancing function in front of an ingress/routes (e.g for ports HTTP / HTTPS - typically TCP:80 and TCP:443).
+
+The way to do this is to simply use an ingress controller (similar to what is described in this blog - https://www.redhat.com/en/blog/a-guide-to-ingress-controllers-in-openshift).
+
+```
+apiVersion: operator.openshift.io/v1
+kind: IngressController
+metadata:
+  name: ingress-metal-lb
+  namespace: openshift-ingress-operator
+spec:
+  nodePlacement:
+    nodeSelector:
+      matchLabels:
+        node-role.kubernetes.io/worker: ''
+  domain: apps.metal-lb.melbourneopenshift.com
+  routeSelector:
+    matchLabels:
+      type: externalapplications
+  endpointPublishingStrategy:
+    loadBalancer:
+      scope: External
+    type: LoadBalancerService
+```
+
 
 ### exposing it using a cloud LB (AWS in that case)
