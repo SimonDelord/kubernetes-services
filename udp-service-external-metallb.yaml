@@ -1,0 +1,20 @@
+### This is the service that gets exposed via an LB outside of the OpenShift cluster
+### this one is specifically to use MetalLB see the annotations.
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: external-lb-udp
+  namespace: metallb-system
+  annotations:
+    MetalLB.universe.tf/address-pool: ip-addresspool-beehive
+    metallb.io/ip-allocated-from-pool: ip-addresspool-beehive
+spec:
+  ports:
+    - protocol: UDP
+      port: 5005
+      targetPort: 5005
+      nodePort: 30363
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/name: kubernetes-services-git
