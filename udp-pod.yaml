@@ -17,5 +17,5 @@ spec:
         - name: udp-port
           containerPort: 5005
           protocol: UDP
-      image: 'image-registry.openshift-image-registry.svc:5000/simon-trialing/kubernetes-services-git@sha256:519ca4d213c6fb58156f1b86d0dfb478a31bc6db768a069a71a10256dd5fd080'
+      image: quay.io/rhn_support_sdelord/udp-pod:latest
   serviceAccount: default
